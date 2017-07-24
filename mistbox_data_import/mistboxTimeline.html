@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Timeline Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Custom styles for this template -->
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mistbox.css" rel="stylesheet">
+
+</head>
+<body role="document">
+
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #000; border-color: #000;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <select id="stage_select" class="form-control">
+                        <option value="http://app.mistbox.com">Prod</option>
+                        <option value="http://api-dev.mistbox.com">Staging</option>
+                        <option value="http://localhost:8080">localhost</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="row">
+    <div class="col-lg-12">
+    <div class="panel panel-primary">
+            <div class="panel-heading">
+                <strong>Credentials</strong>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" ng-submit="signin()">
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input [(ngModel)]="user.email" class="form-control wide_input" style="min-width: 200px; width: 20%;" id="email" 
+                            type="email" class="validate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                            <input [(ngModel)]="user.password" class="form-control wide_input" style="min-width: 200px; width: 20%;" id="password" 
+                            type="password" class="validate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button id="get-timeline" type="button" class="btn btn-primary btn-large">Timeline Test &raquo;</button>
+                        </div>
+                    <div class="col-sm-offset-2 col-sm-10">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="row-fluid marketing">
+        <p id="info_p"/>
+    </div>
+
+    <div class="row-fluid marketing">
+        <button id="clear_console" type="button" class="btn btn-primary ">Clear Console</button>
+        <div id="date-output" class="command_output" style="min-height: 20px; max-height: 20px;"></div>
+        <div id="output" class="command_output"></div>
+    </div>
+    <hr>
+
+    <footer>
+        <p>&copy; Mistbox 2016</p>
+    </footer>
+
+</div>
+<!-- /container -->
+<script type="application/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+<script type="application/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="application/javascript" src="js/bootstrap.min.js"></script>
+<script type="application/javascript" src="js/underscore-min.js"></script>
+<script type="application/javascript" src="js/backbone-min.js"></script>
+<script type="application/javascript" src="js/pretty-json-min.js"></script>
+<script type="application/javascript" src="js/moment.js"></script>
+<script type="application/javascript" src="js/mistbox_commands.js"></script>
+<script type="application/javascript" src="js/mistbox_get_timeline.js"></script>
+</body>

@@ -1,0 +1,113 @@
+[
+  [
+    {
+      "country": "Monday",
+      "category": "Money",
+      "value": "1072"
+    },
+    {
+      "country": "Tuesday",
+      "category": "Money",
+      "value": "473"
+    },
+    {
+      "country": "Wednesday",
+      "category": "Money",
+      "value": "246"
+    },
+    {
+      "country": "Thursday",
+      "category": "Money",
+      "value": "252"
+    },
+    {
+      "country": "Friday",
+      "category": "Money",
+      "value": "233"
+    },
+    {
+      "country": "Saturday",
+      "category": "Money",
+      "value": "235"
+    },
+    {
+      "country": "Sunday",
+      "category": "Money",
+      "value": "193"
+    }
+  ],
+  [
+    {
+      "country": "Monday",
+      "category": "KwH",
+      "value": "859"
+    },
+    {
+      "country": "Tuesday",
+      "category": "KwH",
+      "value": "376"
+    },
+    {
+      "country": "Wednesday",
+      "category": "KwH",
+      "value": "276"
+    },
+    {
+      "country": "Thursday",
+      "category": "KwH",
+      "value": "260"
+    },
+    {
+      "country": "Friday",
+      "category": "KwH",
+      "value": "254"
+    },
+    {
+      "country": "Saturday",
+      "category": "KwH",
+      "value": "200"
+    },
+    {
+      "country": "Sunday",
+      "category": "KwH",
+      "value": "204"
+    }
+  ],
+  [
+    {
+      "country": "Monday",
+      "category": "Runtime",
+      "value": "749"
+    },
+    {
+      "country": "Tuesday",
+      "category": "Runtime",
+      "value": "355"
+    },
+    {
+      "country": "Wednesday",
+      "category": "Runtime",
+      "value": "284"
+    },
+    {
+      "country": "Thursday",
+      "category": "Runtime",
+      "value": "270"
+    },
+    {
+      "country": "Friday",
+      "category": "Runtime",
+      "value": "293"
+    },
+    {
+      "country": "Saturday",
+      "category": "Runtime",
+      "value": "228"
+    },
+    {
+      "country": "Sunday",
+      "category": "Runtime",
+      "value": "230"
+    }
+  ]
+]

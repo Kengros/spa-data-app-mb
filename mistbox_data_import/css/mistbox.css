@@ -1,0 +1,22 @@
+.command_output {
+    width: 100%;
+    min-height: 300px;
+    background-color: #C8CCD0;
+    white-space: pre-wrap;
+}
+
+.wide_input {
+    min-width: 400px;
+}
+
+body {
+    padding-top: 50px;
+}
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}

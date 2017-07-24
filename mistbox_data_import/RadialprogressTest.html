@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vizuly - Radial Progress</title>
+
+    <!-- We use google fonts for many of the examples, but they are not necessary -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto|Raleway:600,400,200' rel='stylesheet' type='text/css'>
+
+    <!-- Test container style sheets -->
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/examples.css">
+
+    <!-- Vizuly specific style sheets -->
+    <link rel="stylesheet" href="css/vizuly.css">
+    <link rel="stylesheet" href="css/vizuly_radial_progress.css">
+
+    <!-- Supporting test container files:  Vizuly does NOT rely on these -->
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+
+    <!-- D3.js ... of course! -->
+    <script src="js/d3.min.js"></script>
+
+    <!-- debug source scripts: start --> <!--
+    <script src="src/namespace/namespace.js"></script>
+
+    <script src="src/theme/_theme.js"></script>
+    <script src="src/theme/radialprogress.js"></script>
+
+    <script src="src/core/viz.js"></script>
+    <script src="src/core/util.js"></script>
+    <script src="src/core/color.js"></script>
+    <script src="src/core/format.js"></script>
+    <script src="src/svg/_svg.js"></script>
+    <script src="src/svg/gradient.js"></script>
+    <script src="src/svg/filter.js"></script>
+    <script src="src/component/_component.js"></script>
+    <script src="src/component/radialprogress.js"></script>
+
+    --> <!-- debug source scripts: end -->
+
+    <script src="js/vizuly_core.min.js"></script>
+	<script src="js/vizuly_radialprogress.min.js"></script>
+
+    <!--<script src="js/radialprogress_test.js"></script>-->
+    <script src="js/mistbox_get_savings.js"></script>
+    <script src="js/theme_showreel.js"></script>
+
+</head>
+
+<body>
+
+<!-- This is our Materialize.css settings panel on the left side of the test container -->
+<ul id="slide-out" class="side-nav fixed" style="display:none;">
+    <li style="padding-top:20px; padding-left;20px;" class="logo">
+        <a href="http://www.mistbox.com" target="new"><img src="http://www.mistbox.com/images/mistbox-logo.svg" height="70" class="default" alt="Mistbox.com"></a>
+    </li>
+    <li>
+        <!-- The user selected property drop downs -->
+        <div style="margin-left:0px; height:0px; width:180px; margin-right:20px;">
+            <div class="input-field col s12" style="margin-top:30px">
+                <select onchange="changeSkin(this.value)">
+                    <option value="" selected>Select Skin</option>
+                    <option value="Fire">Fire</option>
+                    <option value="Business">Business</option>
+                    <option value="White">White</option>
+                    <option value="Neon">Neon</option>
+                    <option value="Alert">Alert</option>
+                </select>
+                <label>Skin</label>
+            </div>
+            <div class="settings-label"></div>
+            <div class="input-field col s12" style="display: none;">
+                <select id="displaySelect" onchange="changeSize(this.value)">
+                    <option id="currentDisplay" value=""></option>
+                    <option value="1000,1000">1000px - 1000px</option>
+                    <option value="800,600">800px - 600px</option>
+                    <option value="375,667">375px - 667px</option>
+                    <option value="320,568">320px - 568px</option>
+                </select>
+                <label>Display Size</label>
+            </div>
+            <div class="input-field col s12" style="margin-top:30px">
+                <select onchange="changeData(this.value);">
+                    <option value="20">20</option>
+                    <option value="60">60</option>
+                    <option value="80">80</option>
+                    <option value="150" selected>150</option>
+                    <option value="250">250</option>
+                    <option value="350">350</option>
+                </select>
+                <label>Value</label>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<a href="#" data-activates="slide-out" class="button-collapse show-on-large" style="display:none;"><i class="mdi-navigation-menu" style="display:none;"></i></a>
+
+<!-- Our main content container-->
+<main>
+    <div class="container" style="width:100%">
+        <div class="vizuly" style="font-size:1.3em; text-align:center; margin-bottom:20px"><b>Mistbox Savings Data</b></div>
+        <div id="viz_container" class="z-depth-3"
+             style="margin:0px auto; width:100%; height:600px; padding-top:25px;">
+            <div id="div1" class="radial_container"><h5 style="padding-left: 26%; color: rgb(174, 199, 232);">Money Saved</h5></div>
+            <div id="div2" class="radial_container"><h5 style="padding-left: 32%; color: rgb(174, 199, 232);">KwH Saved</h5></div>
+            <div id="div3" class="radial_container"><h5 style="padding-left: 23%; color: rgb(174, 199, 232);">Runtime Saved</h5></div>
+
+        </div>
+
+    </div>
+
+</main>
+</body>
+
+
+</html>

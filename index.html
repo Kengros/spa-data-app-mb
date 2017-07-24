@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <base href="/">
+    <title>Data Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+
+    <link rel="stylesheet" href="assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="assets/stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="assets/stylesheets/styles.css">
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="node_modules/underscore/underscore.js"></script>
+    
+    <!-- 2. Configure SystemJS -->
+    <script src="//cdn.auth0.com/js/lock-8.1.min.js"></script>
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+<script>
+    //configure system loader
+    System.config({
+      defaultJSExtensions: true,
+      packages: {
+        "/angular2-jwt": {
+          "defaultExtension": "js"
+        }
+      },
+      map: {
+        "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt",
+        "angular2": "node_modules/angular2"
+      }
+    });
+      System.import('app/boot').then(null, console.error.bind(console));
+</script>
+<script src="/node_modules/rxjs/bundles/Rx.js"></script>
+
+  </head>
+
+  <!-- 3. Display the application -->
+  <body style="">
+    <my-app>Loading...</my-app>
+    
+  </body>
+
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Savings Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Custom styles for this template -->
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mistbox.css" rel="stylesheet">
+    <script src="/lib/ngStorage.js"></script>
+    <script src="../app/scripts/app.js"></script>
+    <script src="../app/scripts/controllers.js"></script>
+    <script src="../app/scripts/services.js"></script>
+</head>
+<body role="document">
+
+<nav class="navbar navbar-inverse navbar-fixed-top" style="">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <select id="stage_select" class="form-control">
+                        <option value="http://app.mistbox.com">Prod</option>
+                        <option value="http://api-dev.mistbox.com">Staging</option>
+                        <option value="http://localhost:8080">localhost</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+
+
+    <!-- Main hero unit for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <form autocomplete="on">
+            <div class="form-group">
+            </div>
+        </form>
+        <div class="container" >
+            <div class="title">
+                Welcome
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input [(ngModel)]="user.email" id="email" 
+                            type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+ 
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input [(ngModel)]="user.password" id="password" 
+                            type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="get-status" type="button" class="btn btn-primary btn-large" >Login Test &raquo;</button>
+        <br>
+        <br>
+        <button id="get-savings" type="button" class="btn btn-primary btn-large" >Savings Test &raquo;</button>
+    </div>
+    <div class="row-fluid marketing">
+        <p id="info_p"/>
+    </div>
+
+    <div class="row-fluid marketing">
+        <button id="clear_console" type="button" class="btn btn-primary ">Clear Console</button>
+        <div id="date-output" class="command_output" style="min-height: 20px; max-height: 20px;"></div>
+        <div id="output" class="command_output"></div>
+    </div>
+    <hr>
+
+    <footer>
+        <p>&copy; Mistbox 2016</p>
+    </footer>
+
+</div>
+<!-- /container -->
+
+<script type="application/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="application/javascript" src="js/bootstrap.min.js"></script>
+<script type="application/javascript" src="js/underscore-min.js"></script>
+<script type="application/javascript" src="js/backbone-min.js"></script>
+<script type="application/javascript" src="js/pretty-json-min.js"></script>
+<script type="application/javascript" src="js/moment.js"></script>
+<script type="application/javascript" src="js/mistbox_commands.js"></script>
+<script type="application/javascript" src="js/mistbox_get_savings.js"></script>
+</body>

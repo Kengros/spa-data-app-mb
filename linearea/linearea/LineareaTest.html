@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vizuly - Line Area Chart</title>
+
+    <!--link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto|Raleway:600,400,200' rel='stylesheet' type='text/css'-->
+
+    <link rel="stylesheet" href="styles/examples.css">
+    <link rel="stylesheet" href="../lib/styles/vizuly.css">
+
+    <!-- Test Index Files -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../lib/styles/cssmenu.css">
+    <script type="text/javascript" src="../lib/jquery-2.1.1.min.js"></script>
+    <script src="../lib/cssmenu.js"></script>
+
+    <!-- D3.js ... of course! -->
+    <script src="lib/d3.min.js"></script>
+
+    <!-- debug source scripts: start --> <!--
+    <script src="src/namespace/namespace.js"></script>
+    <script src="src/viz/_viz.js"></script>
+
+    <script src="src/theme/_theme.js"></script>
+
+    <script src="src/core/component.js"></script>
+    <script src="src/core/util.js"></script>
+    <script src="src/core/color.js"></script>
+    <script src="src/core/format.js"></script>
+    <script src="src/svg/_svg.js"></script>
+    <script src="src/svg/gradient.js"></script>
+    <script src="src/svg/filter.js"></script>
+    <script src="src/viz/linearea.js"></script>
+    <script src="src/theme/linearea.js"></script>
+
+    --> <!-- debug source scripts: end -->
+
+    <script src="lib/vizuly_core.min.js"></script>
+	<script src="src/viz/linearea.js"></script>
+	<script src="src/theme/linearea.js"></script>
+    <script src="linearea_test.js"></script>
+    <script src="lib/theme_showreel.js"></script>
+
+</head>
+
+<body>
+
+
+<div id='cssmenu' style="">
+    <ul class="main-menu">
+        <li class='active' style="display: none;">
+            <a><span>Display</span><br><span class="setting"></span></a>
+            <ul class="options" callback="changeSize">
+                <li id="currentDisplay" class="selected"><a></a></li>
+                <li item_value="1000,1000"><a>1000px - 1000px</a></li>
+                <li item_value="800,600"><a>800px - 600px</a></li>
+                <li item_value="375,667"><a>375px - 667px</a></li>
+                <li item_value="320,568"><a>320px - 568px</a></li>
+            </ul>
+        </li>
+        <li class='active' style="display: none;"><a><span>Theme </span><br><span class="setting"></span></a>
+            <ul class="options" callback="changeSkin">
+                <li item_value="Fire" class="selected"><a>Fire</a></li>
+                <li item_value="Sunset"><a>Sunset</a></li>
+                <li item_value="Neon"><a>Neon</a></li>
+                <li item_value="Ocean"><a>Ocean</a></li>
+                <li item_value="Business"><a>Business</a></li>
+            </ul>
+        </li>
+       <!-- <li class='active'><a><span>Layout </span><br><span class="setting"></span></a>
+            <ul class="options" callback="changeLayout">
+                <li item_value="OVERLAP" class="selected"><a>Overlap</a></li>
+                <li item_value="STACKED"><a>Stacked</a></li>
+            </ul>
+        </li>-->
+        <li class='active'><a><span>Data Field </span><br><span class="setting"></span></a>
+            <ul class="options" callback="changeField">
+                <li item_value="Volume" class="selected"><a>All</a></li>
+                <li item_value="Open"><a>AC</a></li>
+                <li item_value="Close"><a>Analyze</a></li>
+                <li item_value="High"><a>Mist</a></li>
+                <!--<li item_value="Low"><a>Low</a></li>-->
+            </ul>
+        </li>
+        <li class='active' style="display: none;"><a><span>Zoom </span><br><span class="setting" id="zoomLabel"></span></a>
+            <ul class="options" callback="changeZoom">
+                <li item_value="1" class="selected"><a>1x</a></li>
+                <li item_value="2"><a>2x</a></li>
+                <li item_value="3"><a>3x</a></li>
+                <li item_value="4"><a>4x</a></li>
+                <li item_value="5"><a>5x</a></li>
+                <li item_value="6"><a>6x</a></li>
+                <li item_value="7"><a>7x</a></li>
+                <li item_value="8"><a>8x</a></li>
+                <li item_value="9"><a>9x</a></li>
+                <li item_value="10"><a>10x</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="container" style="width:100%;">
+    <div id="viz_container" class="theme_default z-depth-3"></div>
+</div>
+
+
+<script>
+    //Once the document is ready we set javascript and page settings
+    var screenWidth;
+    var screenHeight;
+
+    $(document).ready(function () {
+
+        var rect;
+        if (self==top) {
+            rect = document.body.getBoundingClientRect();
+        }
+        else {
+            rect =  parent.document.body.getBoundingClientRect();
+        }
+
+        //Set display size based on window size.
+        screenWidth = (rect.width < 960) ? Math.round(rect.width*.95) : Math.round((rect.width - 210) *.95);
+        screenHeight = 600;
+
+        d3.select("#currentDisplay")
+                .attr("item_value", (String(screenWidth) + "," + String(screenHeight)))
+                .attr("class", "selected")
+                .html("<a>" + screenWidth + "px - " + screenHeight + "px</a>");
+
+        $("#cssmenu").menumaker({
+            title: "Mistbox Timeline",
+            format: "multitoggle"
+        });
+
+
+        // Set the size of our container element.
+        viz_container = d3.selectAll("#viz_container")
+                .style("width", screenWidth + "px")
+                .style("height", screenHeight + "px");
+
+        loadData();
+
+
+    });
+
+</script>
+
+</body>
+
+
+</html>
